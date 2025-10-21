@@ -12,3 +12,9 @@ class Command:
 
 def run():
     args = sys.argv[1:]
+
+    command = "server"
+
+    if command in commands:
+        o = commands[command]()
+        o.run(args)

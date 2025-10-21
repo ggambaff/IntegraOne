@@ -1,0 +1,20 @@
+{
+  "name": "integraone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ggamboaf/IntegraOne.git"
+  },
+  "private": true,
+
+  "dbname": "mi_base_de_datos",
+  "user": "mi_usuario",
+  "password": "mi_contraseña",
+  "host": "localhost",
+  "port": 5432
+}

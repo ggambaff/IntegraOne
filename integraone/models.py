@@ -7,18 +7,36 @@ class MetaModel(type):
         fields = {}
         meta_attrs = {}
 
+        # Separar campos y metadatos
         for key, value in attrs.items():
             if isinstance(value, Field):
                 fields[key] = value
             elif key.startswith('_'):
                 meta_attrs[key] = value
+        # Herencia múltiple si se define _inherit como lista
+        inherit_from = meta_attrs.get('_inherit')
+        inherited_bases = []
+
+        if isinstance(inherit_from, str):
+            inherit_from = [inherit_from]
+
+        if isinstance(inherit_from, list):
+            for parent_name in inherit_from:
+                parent = globals().get(parent_name)
+                if parent and issubclass(parent, BaseModel):
+                    inherited_bases.append(parent)
+
+        # Evitar duplicados en bases
+        bases = tuple(set(inherited_bases + list(bases)))
 
         attrs['_fields'] = fields
         attrs['_meta'] = meta_attrs
 
         return super().__new__(cls, name, bases, attrs)
 
-class Model(metaclass=MetaModel):
+class BaseModel(metaclass=MetaModel):
+    _name = None
+    _description = None
     def __init__(self, **kwargs):
         for field_name in self._fields:
             setattr(self, field_name, kwargs.get(field_name))
