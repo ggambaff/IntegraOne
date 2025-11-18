@@ -1,0 +1,14 @@
+name: ventas
+version: 1.0.0
+author: Greivin Gamboa
+description: Módulo de gestión de ventas
+dependencies:
+  - base
+  - clientes
+models:
+  - system_users
+  - base_module_list
+post_install:
+  - model: system_users
+    meth: post_install_system_users
+installable: true

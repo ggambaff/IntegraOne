@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <head>
+        <title>{% block title %}In Party{% endblock %}</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <header>
+            <title>In Party</title>
+        </header>
+        <content>
+            {% block content %}{% endblock %}
+        </content>
+        <script src="{{ url_for('js/IntegraOne.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    </body>
+</layout>

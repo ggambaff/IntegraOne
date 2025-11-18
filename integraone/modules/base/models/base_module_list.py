@@ -4,5 +4,13 @@ import integraone
 from integraone import fields, models, modules
 
 
-class Module(models.Model):
-    _name = 'base.module.list'
+class Module(models.BaseModel):
+    _model_name = 'base_module_list'
+
+
+    name = fields.CharField(
+        description="fff",
+        null=False,
+
+    )
+

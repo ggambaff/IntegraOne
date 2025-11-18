@@ -1,9 +1,0 @@
-{
-  "name": "ventas",
-  "version": "1.0.0",
-  "author": "Greivin Gamboa",
-  "description": "Módulo de gestión de ventas",
-  "dependencies": ["base", "clientes"],
-  "models": ["Venta", "Factura"],
-  "installable": true
-}
